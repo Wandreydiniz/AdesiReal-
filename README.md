@@ -1,4 +1,4 @@
-# AdesiReal-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -97,6 +97,33 @@
         .gallery img:hover {
             transform: scale(1.05);
         }
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2;
+        }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+        .social-icons a:hover {
+            background-color: #7B1FA2; /* Cor ao passar o mouse */
+        }
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
     </style>
 </head>
 <body>
@@ -151,6 +178,15 @@
         </div>
 
         <!-- Adicione mais categorias conforme necessário -->
+    </div>
+    <!-- Ícones de redes sociais -->
+    <div class="social-icons">
+        <a href="https://wa.me/64992999550" target="_blank" aria-label="WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/adesireal_oficial?igsh=MXNra3Ixc2Vsa2oxZw==" target="_blank" aria-label="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
     </div>
 </body>
 </html>

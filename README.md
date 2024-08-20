@@ -1,5 +1,6 @@
 # AdesiReal 👑 
-Seja Bem Vindo!!
+# Seja Bem Vindo!!
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">

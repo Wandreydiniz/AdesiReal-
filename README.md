@@ -1,4 +1,4 @@
-# Seja Bem Vindo!
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -97,6 +97,59 @@
         .gallery img:hover {
             transform: scale(1.05);
         }
+        .modal {
+            display: none; /* Oculto por padrão */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+        .modal-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 3px solid #7B1FA2; /* Borda roxa */
+        }
+        .modal-content p {
+            margin-top: 15px;
+            color: white;
+        }
+        .more-info-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #7B1FA2; /* Cor de fundo do botão */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .more-info-button:hover {
+            background-color: #5e2a80; /* Cor ao passar o mouse */
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #7B1FA2; /* Cor ao passar o mouse */
+        }
         .social-icons {
             position: fixed;
             bottom: 20px;
@@ -141,9 +194,9 @@
             <div class="gallery-container">
                 <div class="gallery">
                     <!-- Adicione imagens da Categoria A aqui -->
-                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-16-55-924.jpg?alt=media&token=7fe7d02f-4c4b-4df9-b5f2-41a495144ca0" alt="Adesivo A1">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-26-07-620.jpg?alt=media&token=f7afa9f0-4514-4835-9152-b83dec8a3676" alt="Adesivo A2">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-15-13-674.jpg?alt=media&token=9285d668-3aaf-4228-8878-457b2e722d83" alt="Adesivo A3">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-16-55-924.jpg?alt=media&token=7fe7d02f-4c4b-4df9-b5f2-41a495144ca0" alt="Adesivo A1" data-detail="Detalhes do Adesivo A1">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-26-07-620.jpg?alt=media&token=f7afa9f0-4514-4835-9152-b83dec8a3676" alt="Adesivo A2" data-detail="Detalhes do Adesivo A2">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-15-13-674.jpg?alt=media&token=9285d668-3aaf-4228-8878-457b2e722d83" alt="Adesivo A3" data-detail="Detalhes do Adesivo A3">
                     <!-- Adicione mais imagens conforme necessário -->
                 </div>
             </div>
@@ -155,9 +208,9 @@
             <div class="gallery-container">
                 <div class="gallery">
                     <!-- Adicione imagens da Categoria B aqui -->
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B1" alt="Adesivo B1">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B2" alt="Adesivo B2">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B3" alt="Adesivo B3">
+                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B1" alt="Adesivo B1" data-detail="Detalhes do Adesivo B1">
+                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B2" alt="Adesivo B2" data-detail="Detalhes do Adesivo B2">
+                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B3" alt="Adesivo B3" data-detail="Detalhes do Adesivo B3">
                     <!-- Adicione mais imagens conforme necessário -->
                 </div>
             </div>
@@ -169,15 +222,22 @@
             <div class="gallery-container">
                 <div class="gallery">
                     <!-- Adicione imagens da Categoria C aqui -->
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C1" alt="Adesivo C1">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C2" alt="Adesivo C2">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C3" alt="Adesivo C3">
+                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C1" alt="Adesivo C1" data-detail="Detalhes do Adesivo C1">
+                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C2" alt="Adesivo C2" data-detail="Detalhes do Adesivo C2">
+                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C3" alt="Adesivo C3" data-detail="Detalhes do Adesivo C3">
                     <!-- Adicione mais imagens conforme necessário -->
                 </div>
             </div>
         </div>
-
-        <!-- Adicione mais categorias conforme necessário -->
+    </div>
+    <!-- Modal para exibir detalhes da imagem -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <p id="imageDetail"></p>
+            <a href="https://wa.me/64992999550" class="more-info-button" target="_blank">Mais informações</a>
+        </div>
     </div>
     <!-- Ícones de redes sociais -->
     <div class="social-icons">
@@ -188,5 +248,35 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
         </a>
     </div>
+
+    <script>
+        // Seleciona todos os elementos de imagem na galeria
+        const images = document.querySelectorAll('.gallery img');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalDetail = document.getElementById('imageDetail');
+        const closeModal = document.querySelector('.modal .close');
+
+        // Adiciona um evento de clique a cada imagem
+        images.forEach(image => {
+            image.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                modalDetail.textContent = this.getAttribute('data-detail');
+            });
+        });
+
+        // Fecha o modal quando o usuário clica no "x"
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Fecha o modal quando o usuário clica fora da área do conteúdo do modal
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

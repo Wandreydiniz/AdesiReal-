@@ -141,9 +141,9 @@
             <div class="gallery-container">
                 <div class="gallery">
                     <!-- Adicione imagens da Categoria A aqui -->
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+A1" alt="Adesivo A1">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+A2" alt="Adesivo A2">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+A3" alt="Adesivo A3">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-16-55-924.jpg?alt=media&token=7fe7d02f-4c4b-4df9-b5f2-41a495144ca0" alt="Adesivo A1">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-26-07-620.jpg?alt=media&token=f7afa9f0-4514-4835-9152-b83dec8a3676" alt="Adesivo A2">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-15-13-674.jpg?alt=media&token=9285d668-3aaf-4228-8878-457b2e722d83" alt="Adesivo A3">
                     <!-- Adicione mais imagens conforme necessário -->
                 </div>
             </div>

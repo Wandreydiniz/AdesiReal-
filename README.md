@@ -236,12 +236,12 @@
             <span class="close">&times;</span>
             <img id="modalImage" src="" alt="">
             <p id="imageDetail"></p>
-            <a href="https://wa.me/6492008686" class="more-info-button" target="_blank">Mais informações</a>
+            <a href="https://wa.me/64992008686" class="more-info-button" target="_blank">Mais informações</a>
         </div>
     </div>
     <!-- Ícones de redes sociais -->
     <div class="social-icons">
-        <a href="https://wa.me/6492008686" target="_blank" aria-label="WhatsApp">
+        <a href="https://wa.me/64992008686" target="_blank" aria-label="WhatsApp">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         </a>
         <a href="https://www.instagram.com/adesireal_oficial?igsh=MXNra3Ixc2Vsa2oxZw==" target="_blank" aria-label="Instagram">

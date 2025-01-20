@@ -1,282 +1,99 @@
-<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdesiReal</title>
+    <title>Política de Privacidade - Arena Car Park</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
             margin: 0;
             padding: 0;
-            color: white; /* Texto branco */
-            overflow-y: auto; /* Permite rolagem vertical */
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
-        .background {
-            position: fixed; /* Mantém o fundo fixo */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2); /* Tom branco com opacidade */
-            filter: blur(8px) brightness(0.8); /* Ajusta o filtro para um efeito mais cinza claro */
-            z-index: -1; /* Garante que o fundo esteja atrás do conteúdo */
-        }
-        .header {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            padding: 20px 40px;
-            background-color: transparent; /* Fundo transparente para manter o efeito de água */
-            box-shadow: none; /* Remove a sombra */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
         h1 {
-            color: white; /* Texto branco */
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar o texto */
-        }
-        .search-bar {
-            margin-left: auto;
-            max-width: 400px;
-            width: 100%;
-        }
-        .search-bar input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            font-size: 1em;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .search-bar input[type="text"]:focus {
-            border-color: #7B1FA2;
-            outline: none;
-            box-shadow: 0 0 8px rgba(123, 31, 162, 0.2);
-        }
-        .content {
-            position: relative;
-            z-index: 2;
-            padding: 40px;
-            flex: 1; /* Permite que o conteúdo ocupe o espaço disponível e permita rolagem */
-        }
-        .category-container {
-            margin-bottom: 40px;
-        }
-        .category-title {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #7B1FA2; /* Cor das categorias */
-            font-weight: bold;
-            text-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Sombra para destacar o texto */
-        }
-        .gallery-container {
-            overflow-x: auto; /* Permite rolar horizontalmente */
-            padding: 10px 0;
-            white-space: nowrap; /* Mantém os itens em linha */
-            display: flex;
-            gap: 20px;
-        }
-        .gallery {
-            display: flex;
-            gap: 20px;
-        }
-        .gallery img {
-            max-width: 300px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        .modal {
-            display: none; /* Oculto por padrão */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background: #333;
-            padding: 20px;
-            border-radius: 8px;
             text-align: center;
-            position: relative;
+            color: #007BFF;
+            margin-bottom: 20px;
         }
-        .modal-content img {
-            max-width: 100%;
-            border-radius: 8px;
-            border: 3px solid #7B1FA2; /* Borda roxa */
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
-        .modal-content p {
-            margin-top: 15px;
-            color: white;
+        ul {
+            margin: 15px 0;
         }
-        .more-info-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #7B1FA2; /* Cor de fundo do botão */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
+        li {
+            margin-bottom: 10px;
         }
-        .more-info-button:hover {
-            background-color: #5e2a80; /* Cor ao passar o mouse */
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .close:hover {
-            color: #7B1FA2; /* Cor ao passar o mouse */
-        }
-        .social-icons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 2;
-        }
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s ease;
-        }
-        .social-icons a:hover {
-            background-color: #7B1FA2; /* Cor ao passar o mouse */
-        }
-        .social-icons img {
-            width: 24px;
-            height: 24px;
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
         }
     </style>
 </head>
 <body>
-    <div class="background"></div> <!-- Efeito de fundo de água fixo e cinza claro -->
-    <header class="header">
-        <h1>AdesiReal</h1>
-        <div class="search-bar">
-            <input type="text" placeholder="Pesquisar adesivos 3D...">
-        </div>
-    </header>
-    <div class="content">
-        <!-- Categoria A -->
-        <div class="category-container">
-            <div class="category-title">Categoria A</div>
-            <div class="gallery-container">
-                <div class="gallery">
-                    <!-- Adicione imagens da Categoria A aqui -->
-                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-16-55-924.jpg?alt=media&token=7fe7d02f-4c4b-4df9-b5f2-41a495144ca0" alt="Adesivo A1" data-detail="Detalhes do Adesivo A1">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-26-07-620.jpg?alt=media&token=f7afa9f0-4514-4835-9152-b83dec8a3676" alt="Adesivo A2" data-detail="Detalhes do Adesivo A2">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/uninexus-game-store.appspot.com/o/Logos%2FPicsart_24-08-21_12-15-13-674.jpg?alt=media&token=9285d668-3aaf-4228-8878-457b2e722d83" alt="Adesivo A3" data-detail="Detalhes do Adesivo A3">
-                    <!-- Adicione mais imagens conforme necessário -->
-                </div>
-            </div>
-        </div>
 
-        <!-- Categoria B -->
-        <div class="category-container">
-            <div class="category-title">Categoria B</div>
-            <div class="gallery-container">
-                <div class="gallery">
-                    <!-- Adicione imagens da Categoria B aqui -->
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B1" alt="Adesivo B1" data-detail="Detalhes do Adesivo B1">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B2" alt="Adesivo B2" data-detail="Detalhes do Adesivo B2">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+B3" alt="Adesivo B3" data-detail="Detalhes do Adesivo B3">
-                    <!-- Adicione mais imagens conforme necessário -->
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <h1>Política de Privacidade - Arena Car Park</h1>
 
-        <!-- Categoria C -->
-        <div class="category-container">
-            <div class="category-title">Categoria C</div>
-            <div class="gallery-container">
-                <div class="gallery">
-                    <!-- Adicione imagens da Categoria C aqui -->
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C1" alt="Adesivo C1" data-detail="Detalhes do Adesivo C1">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C2" alt="Adesivo C2" data-detail="Detalhes do Adesivo C2">
-                    <img src="https://via.placeholder.com/300x200.png?text=Adesivo+C3" alt="Adesivo C3" data-detail="Detalhes do Adesivo C3">
-                    <!-- Adicione mais imagens conforme necessário -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal para exibir detalhes da imagem -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImage" src="" alt="">
-            <p id="imageDetail"></p>
-            <a href="https://wa.me/64992008686" class="more-info-button" target="_blank">Mais informações</a>
-        </div>
-    </div>
-    <!-- Ícones de redes sociais -->
-    <div class="social-icons">
-        <a href="https://wa.me/64992008686" target="_blank" aria-label="WhatsApp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </a>
-        <a href="https://www.instagram.com/adesireal_oficial?igsh=MXNra3Ixc2Vsa2oxZw==" target="_blank" aria-label="Instagram">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-        </a>
+        <p>Data de criação: 19 de janeiro de 2025</p>
+
+        <p>Bem-vindo à política de privacidade de <strong>Arena Car Park</strong>, um jogo de arena e combate entre carros. A privacidade dos nossos jogadores é muito importante para nós, e por isso, elaboramos esta política para informar sobre como coletamos, usamos e protegemos seus dados pessoais.</p>
+
+        <h2>1. Dados Coletados</h2>
+        <p>No nosso jogo, coletamos algumas informações pessoais dos jogadores para melhorar a experiência e para garantir a funcionalidade do jogo. Os dados coletados incluem:</p>
+        <ul>
+            <li>Endereço de e-mail (Gmail)</li>
+            <li>Nome de usuário/nick</li>
+            <li>Senha de acesso à conta</li>
+            <li>Progresso no jogo, incluindo nível, conquistas e estatísticas</li>
+        </ul>
+
+        <h2>2. Uso dos Dados</h2>
+        <p>Os dados coletados são utilizados para os seguintes fins:</p>
+        <ul>
+            <li>Gerenciamento de conta de usuário</li>
+            <li>Armazenamento do progresso do jogo</li>
+            <li>Melhorias no gameplay e atualizações do jogo</li>
+            <li>Suporte técnico e comunicação com o jogador</li>
+        </ul>
+
+        <h2>3. Chat Monitorado</h2>
+        <p>O chat dentro do jogo é monitorado para garantir um ambiente seguro e respeitoso. Qualquer comportamento impróprio, como uso de linguagem ofensiva ou assédio, será sujeito a sanções, incluindo a suspensão temporária ou permanente da conta.</p>
+
+        <h2>4. Compartilhamento de Dados</h2>
+        <p>Não compartilhamos suas informações pessoais com terceiros, exceto quando exigido por lei ou para garantir o funcionamento correto do jogo (por exemplo, para serviços de hospedagem ou análise de dados).</p>
+
+        <h2>5. Segurança dos Dados</h2>
+        <p>Adotamos medidas de segurança adequadas para proteger seus dados pessoais contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+
+        <h2>6. Desenvolvedor</h2>
+        <p>O jogo <strong>Arena Car Park</strong> foi desenvolvido por <strong>Wandrey Diniz</strong>, um desenvolvedor comprometido com a criação de experiências de jogo divertidas e seguras.</p>
+
+        <h2>7. Alterações na Política de Privacidade</h2>
+        <p>Reservamos o direito de modificar esta Política de Privacidade a qualquer momento. Quaisquer mudanças serão publicadas nesta página com a data de atualização.</p>
+
+        <h2>8. Contato</h2>
+        <p>Se você tiver dúvidas ou preocupações sobre nossa Política de Privacidade, entre em contato conosco através do e-mail: <strong>contato@arenacarpark.com</strong>.</p>
+
     </div>
 
-    <script>
-        // Seleciona todos os elementos de imagem na galeria
-        const images = document.querySelectorAll('.gallery img');
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalDetail = document.getElementById('imageDetail');
-        const closeModal = document.querySelector('.modal .close');
+    <div class="footer">
+        <p>&copy; 2025 Arena Car Park. Todos os direitos reservados.</p>
+    </div>
 
-        // Adiciona um evento de clique a cada imagem
-        images.forEach(image => {
-            image.addEventListener('click', function() {
-                modal.style.display = 'flex';
-                modalImg.src = this.src;
-                modalDetail.textContent = this.getAttribute('data-detail');
-            });
-        });
-
-        // Fecha o modal quando o usuário clica no "x"
-        closeModal.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        // Fecha o modal quando o usuário clica fora da área do conteúdo do modal
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
